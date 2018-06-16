@@ -1,0 +1,8 @@
+copy.src.files=true
+copy.src.on.open=true
+copy.src.target=C:\\wampinstallations\\wamp64\\www\\practice
+hostname=localhost
+index.file=index.php
+port=8000
+run.as=LOCAL
+url=http://localhost:8088/practice

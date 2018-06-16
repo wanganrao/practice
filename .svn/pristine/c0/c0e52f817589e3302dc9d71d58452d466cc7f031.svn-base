@@ -1,0 +1,46 @@
+<?php
+
+
+class Feedback_Controller extends Controller {
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+    public function index($params) {
+        // Load page template file
+        $this->Load_View('index');
+
+        // load CSS file
+        $this->view->Set_CSS(DS . 'public' . DS . 'css' . DS . 'style.css');
+        $this->view->Set_JS(DS . 'public' . DS . 'js' . DS . 'js.js');
+        $this->view->Set_JS('https://www.google.com/recaptcha/api.js');
+        // Set page title
+        $this->view->Set_Site_Title("UPSC Practice papers");
+
+        // HEADER
+        $header = new View();
+        $header->Assign('app_title', "MCQ Forum");
+        $this->Assign('header', $header->Render('header', false));
+
+        $this->Assign('meta_description', 'Provide your feedback.');
+        $footer = new View();
+        $this->Assign('footer', $footer->Render('footer', false));
+
+
+        // content string
+        $content = "";
+
+
+        $feedbackView = new View();
+        $content.= $feedbackView->Render("forms" . DS . "feedback", false);
+        
+        $homePaperView = new View();
+        $this->Assign('right_panel', $homePaperView->Render("home" . DS . "home", false));
+
+        
+        //assign to the main content of index view
+        $this->Assign('content', $content);
+    }
+
+}

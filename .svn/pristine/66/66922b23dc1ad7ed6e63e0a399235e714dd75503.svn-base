@@ -1,0 +1,41 @@
+<?php
+
+class About_Controller extends Controller{
+
+    public function __construct() {
+		parent::__construct();
+	}
+	
+	public function index() {
+
+		// Load page template file
+		$this->Load_View('index');
+	
+		// load CSS file
+		$this->view->Set_CSS('public' . DS . 'css' . DS . 'style.css');
+		// Set page title
+		$this->view->Set_Site_Title( "MVC Calculator App Demo" );
+		
+		// HEADER
+		$header = new View();
+		$header->Assign('app_title', "MVC Calculator App Demo");
+		$this->Assign('header', $header->Render('header', false));
+		
+		// FOOTER
+		$footer = new View();
+		$this->Assign('footer', $footer->Render('footer', false)); 
+		
+		
+		// content string
+		$content = "";
+		
+		$content_view = new View();
+		$content_view->Assign("title", "About");
+		$content_view->Assign("body", "Thanks for using this app, this app was created in Jan 2013 as an example for the Basic MVC tutorial. The author is Oscar Liang. Free feel to modify or distribute. :)");
+		$content .= $content_view->Render("index".DS."index", false);
+
+		$this->Assign('content', $content); 
+		
+	}
+
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <?= $data['site_title']; ?>
+        <?= $data['meta_keywords']; ?>
+        <?= $data['meta_description']; ?>
+        <?= $data['site_icon']; ?>
+        <?= $data['css']; ?>
+        <?= $data['js']; ?>
+
+    </head>
+
+    <body>
+
+        <!-- main panel -->
+        <div class="main-panel">
+
+            <div class="inner-panel">
+
+                <?= $data['header']; ?>
+
+                <div class="mf-menu">
+                    <a href="/" >
+                        HOME
+                    </a>
+                    <a href="/ias" >
+                        IAS
+                    </a>
+                </div>
+
+                <!-- left panel -->
+                <div class ="left-panel" > 
+                    
+                    <?= $data['content']; ?>
+                </div>
+
+                <!-- right panel -->
+                <div class= "right-panel" >
+                    <div><b>Right Menu</b></div>
+                    HTML<br />
+                    PHP<br />
+                    PERL...
+                </div>
+                <!-- footer-->
+                <?= $data['footer']; ?>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

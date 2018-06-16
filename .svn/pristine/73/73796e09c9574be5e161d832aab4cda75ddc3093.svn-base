@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Description of Questions_Model
+ *
+ * @author owner
+ */
+class Questions_Model extends Model {
+
+    function __construct() {
+        parent::__construct();
+    }
+
+    public function getQuestions() {
+       $starting_position=0;
+        if(isset($_GET["page_no"]))
+        {
+             $starting_position=($_GET["page_no"]-1)*QUESTIONS_PER_PAGE;
+        }
+        $query2="select * from questions"." limit ".$starting_position.",".QUESTIONS_PER_PAGE;
+        
+        return $this->query($query2);
+    }
+
+}

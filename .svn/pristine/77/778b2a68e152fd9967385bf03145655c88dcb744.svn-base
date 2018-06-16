@@ -1,0 +1,12 @@
+
+<div class="div-home-box"> 
+    <h3 class="home-headings">IAS previous year question papers</h3>
+    <ul class="ques-ans">
+        <li><a href="/IAS/GS/PAST/2015/">CSP 2015</a></li>
+        <li><a href="/IAS/GS/PAST/2014/">CSP 2014</a></li>
+        <li><a href="/IAS/GS/PAST/2013/">CSP 2013</a></li>
+        <li><a href="/IAS/GS/PAST/2012/">CSP 2012</a></li>
+        <li><a href="/IAS/GS/PAST/2011/">CSP 2011</a></li>
+
+    </ul>
+</div>

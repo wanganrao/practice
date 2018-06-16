@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Description of Questions_Model
+ *
+ * @author owner
+ */
+class Questions_Model extends Model {
+
+    function __construct() {
+        parent::__construct();
+    }
+
+    public function getQuestions($params) {
+        $starting_position = 0;
+        /*
+          if(isset($_GET["page_no"]))
+          {
+          $starting_position=($_GET["page_no"]-1)*QUESTIONS_PER_PAGE;
+          var_dump($starting_position);
+
+          }
+         * 
+         */
+        $starting_position = (CURRENT_PAGE - 1) * QUESTIONS_PER_PAGE;
+
+        $query2 = "select * from questions where qtype= :qtype and qtype_value=:qtype_value" . " limit " . $starting_position . "," . QUESTIONS_PER_PAGE;
+        /*  sample values
+          $exam = "IAS";
+          $paper =  "GS"; //GS or CSAT
+          $paperType = "PAST"; //past paper or mock paper
+          $paperNo = "2015"; // IAS_2015, MOCK 12
+         */
+        $values = Array(
+            ':qtype' => $params['paperType'],
+            ':qtype_value' => $params['exam'] . '_' . $params['paperNo']
+        );
+        return $this->query($query2, $values);
+    }
+
+    public function getTotalQuestions($params) {
+        $qury = "select count(id) as count from questions where qtype= :qtype and qtype_value=:qtype_value";
+        $values = Array(
+            ':qtype' => $params['paperType'],
+            ':qtype_value' => $params['exam'] . '_' . $params['paperNo']
+        );
+        $result = $this->query($qury, $values); //$result returned is an array of arrays, the count value is in first item of the first array
+        return $result[0]['count'];
+    }
+
+}

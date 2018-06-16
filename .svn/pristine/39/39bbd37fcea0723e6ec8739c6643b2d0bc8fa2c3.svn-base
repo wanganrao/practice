@@ -1,0 +1,25 @@
+<!---
+To display questions
+--->
+
+<div class="container_questions">
+    <form class="form-horizontal" role="form" id='login' method="post" action="result.php">
+        <?php $i=1;
+        foreach ($data["questions"] as $result) {
+            ?>
+
+            <div id='question<?php echo $i; ?>' class='cont'>
+                <p class='questions' id="qname<?php echo $i; ?>"> <?php echo $i ?>. <?php echo $result['statement']; ?></p>
+                <input type="radio" value="1" id='radio1_<?php echo $result['A']; ?>' name='<?php echo $result['A']; ?>'/><?php echo $result['A']; ?>
+                <br/>
+                <input type="radio" value="2" id='radio1_<?php echo $result['B']; ?>' name='<?php echo $result['B']; ?>'/><?php echo $result['B']; ?>
+                <br/>
+                <input type="radio" value="3" id='radio1_<?php echo $result['C']; ?>' name='<?php echo $result['C']; ?>'/><?php echo $result['C']; ?>
+                <br/>
+                <input type="radio" value="4" id='radio1_<?php echo $result['D']; ?>' name='<?php echo $result['D']; ?>'/><?php echo $result['D']; ?>
+                <br/>
+            </div>     
+
+        <?php $i++;} ?>
+    </form>
+</div>

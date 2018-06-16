@@ -1,0 +1,28 @@
+<?php
+/*
+ * Fetch Questions
+ */
+
+class Ajax_Controller extends Controller {
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+    public function feedback($params) {
+        $feedbackText = $_POST['FeedbackText'];
+        $name = $_POST['Name'];
+        $email = $_POST['Email'];
+        
+        $aModel = new Ajax_Model();
+        $aModel-> storeFeedback($feedbackText,$name,$email);
+    }
+
+    public function saveTopic($params){
+        $qid = $_POST['QID'];
+        $topic = $_POST['Topic'];
+        
+        $aModel = new Ajax_Model();
+        $aModel-> storeTopic($qid,$topic);
+    }
+}
